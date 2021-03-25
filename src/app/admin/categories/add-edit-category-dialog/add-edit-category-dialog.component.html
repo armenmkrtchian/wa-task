@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>{{viewMode === ViewModeEnum.CreateMode ? 'Add' : 'Edit' }} category</h2>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="form" class="normal-form">
+        <mat-grid-list cols="1">
+            <mat-grid-tile>
+                <div class="controles-container">
+                    <mat-form-field>
+                        <mat-label>Category Name*</mat-label>
+                        <input formControlName="categoryName" matInput placeholder="Write Your Category">
+                        <mat-error *ngIf="this.form.controls['categoryName'].errors?.required">
+                            This field is mandatory.
+                        </mat-error>
+                        <mat-error *ngIf="this.form.controls['categoryName'].errors?.minlength || this.form.controls['categoryName'].errors?.maxlength">
+                            CategoryName must be from 3 to 20 characters.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button (click)="onSave(form.value)" [disabled]="form.invalid">
+        {{viewMode === ViewModeEnum.EditMode ? 'Save' : 'Submit' }}
+    </button>
+</mat-dialog-actions>

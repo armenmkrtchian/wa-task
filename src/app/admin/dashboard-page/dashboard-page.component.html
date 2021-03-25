@@ -1,0 +1,12 @@
+<ng-template #loading>
+  <p class="text-center">Loading...</p>
+</ng-template>
+
+<mat-tab-group>
+  <mat-tab label="Posts">
+    <app-post-table [role]="RoleEnum.ADMIN" (postActionEmitter)="navigateToTheAddEditPageById($event)"></app-post-table>
+  </mat-tab>
+  <mat-tab label="Categories Tree">
+    <app-categories-manager></app-categories-manager>
+  </mat-tab>
+</mat-tab-group>

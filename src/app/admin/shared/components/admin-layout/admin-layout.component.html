@@ -1,0 +1,27 @@
+<nav class="navbar">
+  <h1 class="c-white">
+    Angular Admin
+  </h1>
+
+  <ul *ngIf="auth.isAuthenticated()">
+    <li routerLinkActive="active">
+      <a mat-mini-fab color='accent' matTooltip="Main page" [routerLink]="['/admin', 'dashboard']">
+        <mat-icon>home</mat-icon>
+      </a>
+    </li>
+    <li>
+      <a mat-mini-fab color='accent' matTooltip="Website page" [routerLink]="['/']">
+        <mat-icon>subtitles</mat-icon>
+      </a>
+    </li>
+    <li>
+      <button mat-mini-fab matTooltip="Logout" color='accent' matTooltip="Log Out" (click)="logout($event)">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

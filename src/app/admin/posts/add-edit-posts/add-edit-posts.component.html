@@ -1,0 +1,49 @@
+<div *ngIf="form; else loading">
+    <form [formGroup]="form" (ngSubmit)="submit()" class="form w-100">
+        <h1>{{viewMode === ViewModeEnum.CreateMode ? 'Create New' : 'Edit' }} Post</h1>
+        <mat-form-field class=" w-100">
+            <input matInput formControlName="author" matInput placeholder="Author of Post:*">
+            <mat-error *ngIf="form.get('author').touched && form.get('author').invalid">
+                Enter Author of Post
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class=" w-100">
+            <input matInput formControlName="title" matInput placeholder="Post Title:*">
+            <mat-error
+                *ngIf="form.get('title').touched && form.get('title').invalid && form.get('title').errors.required">
+                Enter post name
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="w-100" *ngIf="categoryTypeDropdownData?.length">
+            <mat-label>Choose a Category Type</mat-label>
+            <mat-select formControlName="categoryType">
+              <mat-option *ngFor="let categoryType of categoryTypeDropdownData" [value]="categoryType">
+                {{categoryType}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    
+        <mat-form-field class=" w-100">
+            <mat-label>Leave a comment</mat-label>
+            <textarea matInput formControlName="text" placeholder="Ex. It makes me feel..."></textarea>
+        </mat-form-field>
+        <div>
+            <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+                {{viewMode === ViewModeEnum.EditMode ? 'Edit' : 'Create' }} Post
+            </button>
+        </div>
+
+    </form>
+</div>
+
+<ng-template #loading>
+    <p class="text-center">Loading...</p>
+</ng-template>
