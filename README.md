@@ -1,6 +1,17 @@
 # WaTask
+## It is the demo version in firebase: https://angular-blog-9c1d4.web.app/ 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
+## This project used : <br />  
+                    frontend framework [Angular](https://angular.io/) version 10.0.2. 
+                    for UI Library [Angular Material](https://material.angular.io/) version 10.2.7.   
+                    for backend [Firebase](https://firebase.google.com)
+                    This project was generated with [Angular CLI](https://github.com/angular/angular-cli)
+
+
+## for the ADMIN part use this login and password: <br />
+                                      login:       adminangular@gmail.com  
+                                      password:    123456Admin.     
+
 
 ## Development server
 
