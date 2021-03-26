@@ -5,3 +5,8 @@ table {
 th.mat-header-cell, td {
   text-align: center;
 }
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+}
